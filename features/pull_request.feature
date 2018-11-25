@@ -417,7 +417,7 @@ Feature: hub pull-request
     When I run `hub pull-request`
     Then the stderr should contain "error using text editor for pull request message"
     And the exit status should be 1
-    And the file ".git/PULLREQ_EDITMSG" should not exist
+    And a file named ".git/PULLREQ_EDITMSG" should exist
 
   Scenario: Title and body from file
     Given the GitHub API server:
@@ -1097,7 +1097,7 @@ Feature: hub pull-request
     When I run `hub pull-request -p`
     Then the stderr should contain "error using text editor for pull request message"
     And the exit status should be 1
-    And the file ".git/PULLREQ_EDITMSG" should not exist
+    And a file named ".git/PULLREQ_EDITMSG" should exist
     And "git push --set-upstream origin HEAD:topic" should not be run
 
   Scenario: Automatically retry when --push resulted in 422

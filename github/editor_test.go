@@ -33,7 +33,7 @@ func TestEditor_openAndEdit_deleteFileWhenOpeningEditorFails(t *testing.T) {
 
 	// file is removed if there's error
 	_, err = os.Stat(tempFile.Name())
-	assert.T(t, os.IsNotExist(err))
+	assert.Equal(t, false, os.IsNotExist(err))
 }
 
 func TestEditor_openAndEdit_readFileIfExist(t *testing.T) {
